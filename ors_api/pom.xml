@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-maven</artifactId>
+    <packaging>jar</packaging>
+    <version>0.1.0</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- tag::jersey_core[] -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.27</version>
+        </dependency>
+        <!-- tag::jersey_core[] -->
+        <!-- tag::jersey_media[] -->
+        <dependency>
+        	<groupId>org.glassfish.jersey.media</groupId>
+        	<artifactId>jersey-media-moxy</artifactId>
+        	<version>2.24</version>
+    	</dependency>
+    	<!-- tag::jersey_media[] -->
+        <!-- tag::jersey_inject[] -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <!-- tag::jersey_inject[] -->
+        <!-- tag::javax_act[] -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <!-- tag::javax_act[] -->
+        <!-- tag::javax_bind[] -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <!-- tag::javax_bind[] -->
+        <!-- tag::javax_bundle[] -->
+        <dependency>
+		  <groupId>org.glassfish.jersey.bundles.repackaged</groupId>
+		  <artifactId>jersey-guava</artifactId>
+		  <version>2.6</version>
+		</dependency>
+		<!-- tag::javax_bundle[] -->
+		<!-- tag::javax_jackson[] -->
+		<dependency>
+    		<groupId>org.glassfish.jersey.media</groupId>
+    		<artifactId>jersey-media-json-jackson</artifactId>
+    		<version>2.23.1</version>
+		</dependency>
+		<!-- tag::javax_jackson[] -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>hello.HelloWorld</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
