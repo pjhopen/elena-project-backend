@@ -1,4 +1,4 @@
-package com.oakhill.elena.constant;
+package com.oakhill.elena.model;
 
 import org.springframework.http.HttpStatus;
 
@@ -52,10 +52,10 @@ public class ReturnData<T> {
         return ReturnData;
     }
 
-  public static <t> ReturnData<t> fail(HttpStatus status) {
-    ReturnData<t> ReturnData = new ReturnData<>();
-    ReturnData.setStatus(status.value());
-    ReturnData.setMessage(status.getReasonPhrase());
-    return ReturnData;
-  }
+    public static <t> ReturnData<t> fail(HttpStatus status) {
+        ReturnData<t> ReturnData = new ReturnData<>();
+        ReturnData.setStatus(status.value());
+        ReturnData.setMessage(status.getReasonPhrase());
+        return ReturnData;
+    }
 }
