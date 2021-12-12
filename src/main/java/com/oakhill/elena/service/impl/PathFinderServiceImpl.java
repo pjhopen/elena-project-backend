@@ -8,6 +8,7 @@ import javax.json.JsonObject;
 
 import com.oakhill.elena.mapper.OpenRouteServiceMapper;
 import com.oakhill.elena.model.Path;
+import com.oakhill.elena.model.RequestData;
 import com.oakhill.elena.service.intf.PathFinderService;
 import com.oakhill.elena.util.Converters;
 
@@ -20,8 +21,8 @@ public class PathFinderServiceImpl implements PathFinderService {
     @Autowired
     OpenRouteServiceMapper openRouteServiceMapper;
 
-    public Path get2dShortestPathSerive() {
-        JsonObject resBody = openRouteServiceMapper.queryShortestPathWithWeight();
+    public Path get2dShortestPathSerive(RequestData reqData) {
+        JsonObject resBody = openRouteServiceMapper.queryShortestPath(reqData);
         JsonArray features = resBody.getJsonArray("features");
         List<double[][]> routes = new ArrayList<>();
         for (int i = 0; i < features.size(); i++) {
@@ -31,5 +32,17 @@ public class PathFinderServiceImpl implements PathFinderService {
         }
         return new Path(routes);
         
+    }
+
+    @Override
+    public Path get3ElenaPath() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Path get3ElenaPathWithWeight() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
