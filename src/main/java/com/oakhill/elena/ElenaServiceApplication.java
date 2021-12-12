@@ -11,5 +11,4 @@ public class ElenaServiceApplication {
 		SpringApplication.run(ElenaServiceApplication.class, args);
 	}
 
-	
 }
