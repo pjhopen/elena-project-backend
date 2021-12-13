@@ -5,6 +5,5 @@ import com.oakhill.elena.model.RequestData;
 
 public interface PathFinderService {
     public Path get2dShortestPathSerive(RequestData reqData);
-    public Path get3ElenaPath();
-    public Path get3ElenaPathWithWeight();
+    public Path getElenaPathWithWeight(RequestData reqData);
 }

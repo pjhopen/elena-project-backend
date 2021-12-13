@@ -51,4 +51,14 @@ public class PathFinderController {
 		return ReturnData.success(pathFinderService.get2dShortestPathSerive(data));
 	}
 
+	@PostMapping("/getElenaRoutes")
+	@ResponseBody
+	public ReturnData<Path> getElenaRoutes(@RequestBody Optional<RequestData> reqData) {
+		RequestData data = reqData.get();
+		if (data == null || data.getEnd() == null || data.getStart() == null) {
+			return ReturnData.fail(HttpStatus.BAD_REQUEST);
+		}
+		return ReturnData.success(pathFinderService.getElenaPathWithWeight(data));
+	}
+
 }

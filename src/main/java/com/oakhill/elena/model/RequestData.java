@@ -4,6 +4,19 @@ public class RequestData {
     double[] start;
     double[] end;
     double weight;
+    boolean isMin;
+    
+    public boolean isIsMin() {
+        return this.isMin;
+    }
+
+    public boolean getIsMin() {
+        return this.isMin;
+    }
+
+    public void setIsMin(boolean isMin) {
+        this.isMin = isMin;
+    }
 
     public double[] getStart() {
         return this.start;
