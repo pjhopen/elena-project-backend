@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,8 +29,6 @@ public class PathFinderController {
 
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-
-		System.out.println(openStreetServiceConfig.getApi_key());
 		return String.format("Hello %s!", name);
 	}
 
@@ -42,11 +41,11 @@ public class PathFinderController {
 	// 	return new Path(routes);
 	// }
 
-	@GetMapping("/get2dShortestPath")
+	@PostMapping("/get2dShortestPath")
 	@ResponseBody
 	public ReturnData<Path> get2dShortestPath(@RequestBody Optional<RequestData> reqData) {
 		RequestData data = reqData.get();
-		if (data.getEnd() == null || data.getStart() == null) {
+		if (data == null || data.getEnd() == null || data.getStart() == null) {
 			return ReturnData.fail(HttpStatus.BAD_REQUEST);
 		}
 		return ReturnData.success(pathFinderService.get2dShortestPathSerive(data));
