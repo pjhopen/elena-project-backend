@@ -2,6 +2,9 @@ package com.oakhill.elena.model;
 
 import java.util.List;
 
+/**
+ * Stores path data returned from API
+ */
 public class Path {
     private List<double[]> route;
 

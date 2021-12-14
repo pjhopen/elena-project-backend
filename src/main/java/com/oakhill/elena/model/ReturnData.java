@@ -2,6 +2,9 @@ package com.oakhill.elena.model;
 
 import org.springframework.http.HttpStatus;
 
+/**
+ * Return object to frontend
+ */
 public class ReturnData<T> {
     private int status;
     private String message;

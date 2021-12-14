@@ -1,5 +1,8 @@
 package com.oakhill.elena.model;
 
+/**
+ * Store arguments from frontend
+ */
 public class RequestData {
     double[] start;
     double[] end;
