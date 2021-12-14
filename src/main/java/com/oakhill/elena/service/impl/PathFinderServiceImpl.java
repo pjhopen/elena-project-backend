@@ -27,6 +27,10 @@ public class PathFinderServiceImpl implements PathFinderService {
     @Autowired
     OpenRouteServiceMapper openRouteServiceMapper;
 
+    /**
+     * Returns optimal path with respect to given arguments
+     * @param reqData Object of arguments passed from the frontend
+     */
     @Override
     public Path getElenaPathWithWeight(RequestData reqData) {
         JsonObject resBody = openRouteServiceMapper.queryShortestPathWithElevation(reqData);

@@ -27,6 +27,11 @@ public class OpenRouteServiceMapper {
     @Autowired
     OpenStreetServiceConfig openStreetServiceConfig;
 
+
+    /**
+     * Returns response from OpenRouteService API
+     * @param reqData Object of arguments passed from the frontend
+     */
     public JsonObject queryShortestPathWithElevation(RequestData reqData) {
         JsonArray coordinates = Converters.startEndToJsonArray(reqData.getStart(), reqData.getEnd());
         JsonObject requestBody = Json.createObjectBuilder()

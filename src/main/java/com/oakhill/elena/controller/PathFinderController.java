@@ -30,6 +30,10 @@ public class PathFinderController {
 	@Autowired
 	OpenStreetServiceConfig openStreetServiceConfig;
 
+	/**
+	 * Returns ReturnData with min/max elevation path
+	 * @param reqData Object of arguments passed from the frontend
+	 */
 	@PostMapping("/getElenaRoutes")
 	@ResponseBody
 	public ReturnData<Path> getElenaRoutes(@RequestBody Optional<RequestData> reqData) {

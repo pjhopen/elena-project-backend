@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-// Access stored API key for OpenRouteService
+/**
+ * Access stored API key for OpenRouteService
+ */
 @Configuration
 @PropertySource("application.properties")
 public class OpenStreetServiceConfig {

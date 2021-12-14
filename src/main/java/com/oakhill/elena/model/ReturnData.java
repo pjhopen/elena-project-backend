@@ -3,7 +3,7 @@ package com.oakhill.elena.model;
 import org.springframework.http.HttpStatus;
 
 /**
- * Return object to frontend
+ * Return object to share with frontend
  */
 public class ReturnData<T> {
     private int status;
